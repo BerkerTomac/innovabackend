@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/MasrafTakip.WebAPI.props" />
+</Project>

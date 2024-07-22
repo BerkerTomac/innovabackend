@@ -1,0 +1,12 @@
+/Users/berkertomac/innova/MasrafTakip.Domain/bin/Debug/net8.0/MasrafTakip.Domain.deps.json
+/Users/berkertomac/innova/MasrafTakip.Domain/bin/Debug/net8.0/MasrafTakip.Domain.dll
+/Users/berkertomac/innova/MasrafTakip.Domain/bin/Debug/net8.0/MasrafTakip.Domain.pdb
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/MasrafTakip.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/MasrafTakip.Domain.AssemblyInfoInputs.cache
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/MasrafTakip.Domain.AssemblyInfo.cs
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/MasrafTakip.Domain.csproj.CoreCompileInputs.cache
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/MasrafTakip.Domain.dll
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/refint/MasrafTakip.Domain.dll
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/MasrafTakip.Domain.pdb
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/ref/MasrafTakip.Domain.dll
+/Users/berkertomac/innova/MasrafTakip.Domain/obj/Debug/net8.0/MasrafTakip.Domain.csproj.AssemblyReference.cache

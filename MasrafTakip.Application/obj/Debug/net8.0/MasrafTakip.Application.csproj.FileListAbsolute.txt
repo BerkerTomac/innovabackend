@@ -1,0 +1,15 @@
+/Users/berkertomac/innova/MasrafTakip.Application/bin/Debug/net8.0/MasrafTakip.Application.deps.json
+/Users/berkertomac/innova/MasrafTakip.Application/bin/Debug/net8.0/MasrafTakip.Application.dll
+/Users/berkertomac/innova/MasrafTakip.Application/bin/Debug/net8.0/MasrafTakip.Application.pdb
+/Users/berkertomac/innova/MasrafTakip.Application/bin/Debug/net8.0/MasrafTakip.Domain.dll
+/Users/berkertomac/innova/MasrafTakip.Application/bin/Debug/net8.0/MasrafTakip.Domain.pdb
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.csproj.AssemblyReference.cache
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.AssemblyInfoInputs.cache
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.AssemblyInfo.cs
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.csproj.CoreCompileInputs.cache
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.csproj.CopyComplete
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.dll
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/refint/MasrafTakip.Application.dll
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/MasrafTakip.Application.pdb
+/Users/berkertomac/innova/MasrafTakip.Application/obj/Debug/net8.0/ref/MasrafTakip.Application.dll
