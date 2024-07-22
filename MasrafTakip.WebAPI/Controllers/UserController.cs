@@ -39,17 +39,24 @@ namespace MasrafTakip.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody] ApplicationUserDto userDto, [FromQuery] string password)
         {
-            await _userService.AddUserAsync(userDto, password);
-            return CreatedAtAction(nameof(GetUserById), new { id = userDto.Id }, userDto);
+            if (userDto == null)
+            {
+                return BadRequest();
+            }
+
+            var userId = await _userService.AddUserAsync(userDto, password);
+            return CreatedAtAction(nameof(GetUserById), new { id = userId }, userDto);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(string id, [FromBody] ApplicationUserDto userDto)
         {
-            if (id != userDto.Id)
+            if (userDto == null)
+            {
                 return BadRequest();
+            }
 
-            await _userService.UpdateUserAsync(userDto);
+            await _userService.UpdateUserAsync(id, userDto);
             return NoContent();
         }
 

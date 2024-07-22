@@ -2,6 +2,7 @@
 using MasrafTakip.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -13,24 +14,45 @@ namespace MasrafTakip.WebAPI.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly ITransactionService _transactionService;
+        private readonly ILogger<TransactionController> _logger;
 
-        public TransactionController(ITransactionService transactionService)
+        public TransactionController(ITransactionService transactionService, ILogger<TransactionController> logger)
         {
             _transactionService = transactionService;
+            _logger = logger;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] TransactionDto transactionDto)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var transactions = await _transactionService.GetAllTransactionsAsync(userId);
-            return Ok(transactions);
+            if (transactionDto == null)
+            {
+                return BadRequest();
+            }
+
+            var userId = User.FindFirstValue("UserId"); 
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+
+            _logger.LogInformation("User ID from claims: {UserId}", userId);
+
+            var createdTransaction = await _transactionService.AddTransactionAsync(transactionDto, userId);
+            return CreatedAtAction(nameof(GetById), new { id = createdTransaction.Id }, createdTransaction);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = User.FindFirstValue("UserId"); 
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+
+            _logger.LogInformation("User ID from claims: {UserId}", userId);
+
             var transaction = await _transactionService.GetTransactionByIdAsync(id, userId);
             if (transaction == null)
                 return NotFound();
@@ -38,46 +60,39 @@ namespace MasrafTakip.WebAPI.Controllers
             return Ok(transaction);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] TransactionDto transaction)
-        {
-            if (transaction == null)
-                return BadRequest();
-
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            await _transactionService.AddTransactionAsync(transaction, userId);
-            return CreatedAtAction(nameof(GetById), new { id = transaction.Id }, transaction);
-        }
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] TransactionDto transaction)
+        public async Task<IActionResult> Update(int id, [FromBody] TransactionDto transactionDto)
         {
-            if (transaction == null || transaction.Id != id)
+            if (transactionDto == null)
+            {
                 return BadRequest();
+            }
 
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var existingTransaction = await _transactionService.GetTransactionByIdAsync(id, userId);
-            if (existingTransaction == null)
-                return NotFound();
+            var userId = User.FindFirstValue("UserId"); 
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
 
-            await _transactionService.UpdateTransactionAsync(transaction, userId);
+            _logger.LogInformation("User ID from claims: {UserId}", userId);
+
+            await _transactionService.UpdateTransactionAsync(transactionDto, id, userId);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = User.FindFirstValue("UserId"); 
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized();
+            }
+
+            _logger.LogInformation("User ID from claims: {UserId}", userId);
+
             await _transactionService.DeleteTransactionAsync(id, userId);
             return NoContent();
-        }
-
-        [HttpGet("total-expenses")]
-        public async Task<IActionResult> GetTotalExpenses()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var totalExpenses = await _transactionService.GetTotalExpensesByUserIdAsync(userId);
-            return Ok(new { TotalExpenses = totalExpenses });
         }
     }
 }

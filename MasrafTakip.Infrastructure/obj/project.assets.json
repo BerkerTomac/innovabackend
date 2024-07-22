@@ -5126,11 +5126,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/berkertomac/innova/MasrafTakip.Infrastructure/MasrafTakip.Infrastructure.csproj",
+      "projectUniqueName": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Infrastructure/MasrafTakip.Infrastructure.csproj",
       "projectName": "MasrafTakip.Infrastructure",
-      "projectPath": "/Users/berkertomac/innova/MasrafTakip.Infrastructure/MasrafTakip.Infrastructure.csproj",
+      "projectPath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Infrastructure/MasrafTakip.Infrastructure.csproj",
       "packagesPath": "/Users/berkertomac/.nuget/packages/",
-      "outputPath": "/Users/berkertomac/innova/MasrafTakip.Infrastructure/obj/",
+      "outputPath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/berkertomac/.nuget/NuGet/NuGet.Config"
@@ -5145,11 +5145,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/berkertomac/innova/MasrafTakip.Application/MasrafTakip.Application.csproj": {
-              "projectPath": "/Users/berkertomac/innova/MasrafTakip.Application/MasrafTakip.Application.csproj"
+            "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Application/MasrafTakip.Application.csproj": {
+              "projectPath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Application/MasrafTakip.Application.csproj"
             },
-            "/Users/berkertomac/innova/MasrafTakip.Domain/MasrafTakip.Domain.csproj": {
-              "projectPath": "/Users/berkertomac/innova/MasrafTakip.Domain/MasrafTakip.Domain.csproj"
+            "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/MasrafTakip.Domain.csproj": {
+              "projectPath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/MasrafTakip.Domain.csproj"
             }
           }
         }

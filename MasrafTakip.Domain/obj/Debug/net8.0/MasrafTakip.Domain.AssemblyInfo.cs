@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MasrafTakip.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4d35ba1e34b5eb5061fb53562152f08bcc1eef4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MasrafTakip.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MasrafTakip.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

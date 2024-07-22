@@ -57,12 +57,13 @@ namespace MasrafTakip.Application.Services
             var user = await _userManager.FindByNameAsync(model.Username);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                var authClaims = new[]
-                {
-                    new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(ClaimTypes.NameIdentifier, user.Id)
-                };
+                var authClaims = new List<Claim>
+        {
+            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(ClaimTypes.NameIdentifier, user.UserName), 
+            new Claim("UserId", user.Id) // Custom claim for UserId
+        };
 
                 var authSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]));
 
@@ -80,5 +81,7 @@ namespace MasrafTakip.Application.Services
             _logger.LogWarning("Invalid login attempt for user: {Username}", model.Username);
             return null;
         }
+
+
     }
 }

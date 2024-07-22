@@ -1,7 +1,7 @@
-﻿using System;
+﻿using MasrafTakip.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MasrafTakip.Domain.Entities;
 
 namespace MasrafTakip.Domain.Interfaces
 {

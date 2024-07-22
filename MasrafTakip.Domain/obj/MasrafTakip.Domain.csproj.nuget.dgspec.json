@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/berkertomac/innova/MasrafTakip.Domain/MasrafTakip.Domain.csproj": {}
+    "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/MasrafTakip.Domain.csproj": {}
   },
   "projects": {
-    "/Users/berkertomac/innova/MasrafTakip.Domain/MasrafTakip.Domain.csproj": {
+    "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/MasrafTakip.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/berkertomac/innova/MasrafTakip.Domain/MasrafTakip.Domain.csproj",
+        "projectUniqueName": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/MasrafTakip.Domain.csproj",
         "projectName": "MasrafTakip.Domain",
-        "projectPath": "/Users/berkertomac/innova/MasrafTakip.Domain/MasrafTakip.Domain.csproj",
+        "projectPath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/MasrafTakip.Domain.csproj",
         "packagesPath": "/Users/berkertomac/.nuget/packages/",
-        "outputPath": "/Users/berkertomac/innova/MasrafTakip.Domain/obj/",
+        "outputPath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/berkertomac/.nuget/NuGet/NuGet.Config"

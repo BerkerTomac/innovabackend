@@ -3,6 +3,7 @@ using MasrafTakip.Application.Interfaces;
 using MasrafTakip.Domain.Entities;
 using MasrafTakip.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,10 +21,9 @@ namespace MasrafTakip.Application.Services
 
         public async Task<IEnumerable<ApplicationUserDto>> GetAllUsersAsync()
         {
-            var users = _userManager.Users.ToList();
+            var users = await _userManager.Users.ToListAsync();
             return users.Select(u => new ApplicationUserDto
             {
-                Id = u.Id,
                 UserName = u.UserName,
                 Email = u.Email,
                 Name = u.Name
@@ -38,14 +38,13 @@ namespace MasrafTakip.Application.Services
 
             return new ApplicationUserDto
             {
-                Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
                 Name = user.Name
             };
         }
 
-        public async Task AddUserAsync(ApplicationUserDto userDto, string password)
+        public async Task<string> AddUserAsync(ApplicationUserDto userDto, string password)
         {
             var user = new ApplicationUser
             {
@@ -53,18 +52,30 @@ namespace MasrafTakip.Application.Services
                 Email = userDto.Email,
                 Name = userDto.Name
             };
-            await _userManager.CreateAsync(user, password);
+
+            var result = await _userManager.CreateAsync(user, password);
+            if (!result.Succeeded)
+            {
+                throw new ApplicationException("User creation failed! Please check user details and try again.");
+            }
+
+            return user.Id;
         }
 
-        public async Task UpdateUserAsync(ApplicationUserDto userDto)
+        public async Task UpdateUserAsync(string id, ApplicationUserDto userDto)
         {
-            var user = await _userManager.FindByIdAsync(userDto.Id);
+            var user = await _userManager.FindByIdAsync(id);
             if (user != null)
             {
                 user.UserName = userDto.UserName;
                 user.Email = userDto.Email;
                 user.Name = userDto.Name;
-                await _userManager.UpdateAsync(user);
+
+                var result = await _userManager.UpdateAsync(user);
+                if (!result.Succeeded)
+                {
+                    throw new ApplicationException("User update failed! Please check user details and try again.");
+                }
             }
         }
 

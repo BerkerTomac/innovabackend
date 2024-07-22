@@ -1,5 +1,5 @@
-﻿using System;
-using MasrafTakip.Infrastructure.Identity;
+﻿using MasrafTakip.Infrastructure.Identity;
+using System;
 
 namespace MasrafTakip.Domain.Entities
 {
@@ -9,7 +9,7 @@ namespace MasrafTakip.Domain.Entities
         public string UserId { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
-
+        public string Description { get; set; }
         public ApplicationUser User { get; set; }
     }
 }

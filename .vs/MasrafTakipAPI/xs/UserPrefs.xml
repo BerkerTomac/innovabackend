@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{EA6BF72E-4519-4CC8-9AAC-8672070AFA4E}|https">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Application/Services/UserService.cs" relfile="MasrafTakip.Application/Services/UserService.cs" line="47" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MasrafTakip.WebAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MasrafTakip.Application/DTOs/TransactionDto.cs">
+    <Files>
+      <File FileName="MasrafTakip.Application/Interfaces/ITransactionService.cs" Line="20" Column="1" />
+      <File FileName="MasrafTakip.Application/Services/TransactionService.cs" Line="49" Column="1" />
+      <File FileName="MasrafTakip.Application/DTOs/TransactionDto.cs" Line="10" Column="1" />
+      <File FileName="MasrafTakip.WebAPI/Controllers/TransactionController.cs" Line="86" Column="57" />
+      <File FileName="MasrafTakip.Application/Services/AuthService.cs" Line="64" Column="66" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="MasrafTakipAPI" expanded="True">
+            <Node name="MasrafTakip.Application">
+              <Node name="DTOs">
+                <Node name="TransactionDto.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="MasrafTakip.Domain">
+              <Node name="Identity" expanded="True" />
+            </Node>
+            <Node name="MasrafTakip.WebAPI">
+              <Node name="Controllers" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>

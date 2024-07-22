@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9eZw94RoHJIhIlsKkCbawegzIGZx5CrZA+iewDKkW9pS9GweQFJq8fGDQOKGcl+mryNaYQ0YaXMQ/AVxr0XTLQ==",
+  "dgSpecHash": "ILZCM1UthOnE6CjXTYMU6xWdQExZc91j8FGOr+T631N7lkuuy5Zu8bAFYrIV1w3AN/dLULrqqetGxL3SPzb3NA==",
   "success": true,
-  "projectFilePath": "/Users/berkertomac/innova/MasrafTakip.Domain/MasrafTakip.Domain.csproj",
+  "projectFilePath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.Domain/MasrafTakip.Domain.csproj",
   "expectedPackageFiles": [
     "/Users/berkertomac/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/berkertomac/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MasrafTakip.Domain.Entities;
+﻿using MasrafTakip.Domain.Entities;
 using MasrafTakip.Domain.Interfaces;
 using MasrafTakip.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MasrafTakip.Infrastructure.Repositories
 {
@@ -33,12 +33,6 @@ namespace MasrafTakip.Infrastructure.Repositories
             return await _context.Transactions
                 .Where(t => t.UserId == userId && t.Date >= startDate && t.Date <= endDate)
                 .ToListAsync();
-        }
-
-        public override async Task DeleteAsync(Transaction entity)
-        {
-            _context.Set<Transaction>().Remove(entity);
-            await _context.SaveChangesAsync();
         }
     }
 }

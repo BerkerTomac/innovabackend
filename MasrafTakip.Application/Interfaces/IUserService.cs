@@ -8,8 +8,8 @@ namespace MasrafTakip.Application.Interfaces
     {
         Task<IEnumerable<ApplicationUserDto>> GetAllUsersAsync();
         Task<ApplicationUserDto> GetUserByIdAsync(string id);
-        Task AddUserAsync(ApplicationUserDto userDto, string password);
-        Task UpdateUserAsync(ApplicationUserDto userDto);
+        Task<string> AddUserAsync(ApplicationUserDto userDto, string password);
+        Task UpdateUserAsync(string id, ApplicationUserDto userDto);
         Task DeleteUserAsync(string id);
     }
 }

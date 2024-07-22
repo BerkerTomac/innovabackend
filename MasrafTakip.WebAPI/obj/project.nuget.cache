@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XMFk3x+BTmIe5xfIyLdoK9JGf1TY19g5nTkG5RoNyyimnWxYYTdm4qMmGIexCQubAfIpNygQWkUKsvsx9idjcQ==",
+  "dgSpecHash": "BYSCBC1ys3cIFcxbnQ5AKB/VPLfozT/VNDZaf/0+1GPGDA8j6PEaEPIbHOU+wzpB6daXKqlGlyyLqsKRj50NDw==",
   "success": true,
-  "projectFilePath": "/Users/berkertomac/innova/MasrafTakip.WebAPI/MasrafTakip.WebAPI.csproj",
+  "projectFilePath": "/Users/berkertomac/innovabackend/innovabackend/MasrafTakip.WebAPI/MasrafTakip.WebAPI.csproj",
   "expectedPackageFiles": [
     "/Users/berkertomac/.nuget/packages/dapper/1.50.5/dapper.1.50.5.nupkg.sha512",
     "/Users/berkertomac/.nuget/packages/hangfire/1.8.14/hangfire.1.8.14.nupkg.sha512",
