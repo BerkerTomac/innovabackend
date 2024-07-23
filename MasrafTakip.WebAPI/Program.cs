@@ -5,17 +5,25 @@ using MasrafTakip.Infrastructure.Identity;
 using MasrafTakip.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Hangfire;
-//using MasrafTakip.Infrastructure.BackgroundJobs;
+using MasrafTakip.Infrastructure.BackgroundJobs;
 using MasrafTakip.Application.Services;
 using Microsoft.EntityFrameworkCore;
 using Hangfire.MySql;
-using MasrafTakip.Infrastructure.BackgroundJobs;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.MySQL(connectionString, "ErrorLogs")
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -145,6 +153,8 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
+
+app.UseMiddleware<MasrafTakip.Infrastructure.Logging.ErrorLoggingMiddleware>();
 
 // Enable middleware to serve generated Swagger as a JSON endpoint.
 app.UseSwagger();

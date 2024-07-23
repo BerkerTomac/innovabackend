@@ -12,17 +12,21 @@ namespace MasrafTakip.Application.Services
     public class TransactionService : ITransactionService
     {
         private readonly ITransactionRepository _transactionRepository;
-        private readonly ILogger<TransactionService> _logger;
 
         public TransactionService(ITransactionRepository transactionRepository, ILogger<TransactionService> logger)
         {
             _transactionRepository = transactionRepository;
-            _logger = logger;
         }
 
         public async Task<IEnumerable<TransactionDto>> GetAllTransactionsAsync(string userId)
         {
             var transactions = await _transactionRepository.GetAllByUserIdAsync(userId);
+
+            if (transactions == null)
+            {
+                throw new Exception("No transactions found for the user.");
+            }
+
             return transactions.Select(t => new TransactionDto
             {
                 Amount = t.Amount,
@@ -61,6 +65,11 @@ namespace MasrafTakip.Application.Services
         public async Task UpdateTransactionAsync(TransactionDto transactionDto, int id, string userId)
         {
             var transaction = await _transactionRepository.GetByIdAndUserIdAsync(id, userId);
+            if (transaction == null)
+            {
+                throw new Exception("Transaction not found.");
+            }
+
             if (transaction != null)
             {
                 transaction.Amount = transactionDto.Amount;
@@ -73,6 +82,11 @@ namespace MasrafTakip.Application.Services
         public async Task DeleteTransactionAsync(int id, string userId)
         {
             var transaction = await _transactionRepository.GetByIdAndUserIdAsync(id, userId);
+            if (transaction == null)
+            {
+                throw new Exception("Transaction not found.");
+            }
+
             if (transaction != null)
             {
                 await _transactionRepository.DeleteAsync(transaction);
@@ -82,12 +96,20 @@ namespace MasrafTakip.Application.Services
         public async Task<decimal> GetTotalExpensesByUserIdAsync(string userId)
         {
             var transactions = await _transactionRepository.GetAllByUserIdAsync(userId);
+            if (transactions == null)
+            {
+                throw new Exception("No transactions found for the user.");
+            }
             return transactions.Sum(t => t.Amount);
         }
 
         public async Task<decimal> CalculateTotalExpensesAsync(DateTime startDate, DateTime endDate, string userId)
         {
             var transactions = await _transactionRepository.GetByDateRangeAndUserIdAsync(startDate, endDate, userId);
+            if (transactions == null)
+            {
+                throw new Exception("No transactions found for the user in the specified date range.");
+            }
             return transactions.Sum(t => t.Amount);
         }
     }

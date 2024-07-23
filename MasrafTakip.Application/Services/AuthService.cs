@@ -18,22 +18,24 @@ namespace MasrafTakip.Application.Services
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
-        private readonly ILogger<AuthService> _logger;
 
-        public AuthService(UserManager<ApplicationUser> userManager, IConfiguration configuration, ILogger<AuthService> logger)
+        public AuthService(UserManager<ApplicationUser> userManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _configuration = configuration;
-            _logger = logger;
         }
 
         public async Task<string> RegisterAsync(RegisterModel model)
         {
+            try
+            {
+
+            
             var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
             {
-                _logger.LogWarning("User already exists: {Username}", model.Username);
-                return "User already exists!";
+                throw new Exception("User already exists!");
+
             }
 
             var user = new ApplicationUser
@@ -45,15 +47,23 @@ namespace MasrafTakip.Application.Services
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
             {
-                _logger.LogError("User creation failed: {Errors}", string.Join(", ", result.Errors.Select(e => e.Description)));
-                return "User creation failed! Please check user details and try again.";
+                throw new Exception("User creation failed! Please check user details and try again.");
             }
 
             return "User created successfully!";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in Registration");
+                throw;
+            }
         }
 
         public async Task<string> LoginAsync(LoginModel model)
         {
+            try {
+
+           
             var user = await _userManager.FindByNameAsync(model.Username);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
@@ -78,7 +88,12 @@ namespace MasrafTakip.Application.Services
                 return new JwtSecurityTokenHandler().WriteToken(token);
             }
 
-            _logger.LogWarning("Invalid login attempt for user: {Username}", model.Username);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in logging");
+            }
             return null;
         }
 

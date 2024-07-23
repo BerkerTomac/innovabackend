@@ -14,12 +14,10 @@ namespace MasrafTakip.WebAPI.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly ITransactionService _transactionService;
-        private readonly ILogger<TransactionController> _logger;
 
-        public TransactionController(ITransactionService transactionService, ILogger<TransactionController> logger)
+        public TransactionController(ITransactionService transactionService)
         {
             _transactionService = transactionService;
-            _logger = logger;
         }
 
         [HttpPost]
@@ -36,7 +34,6 @@ namespace MasrafTakip.WebAPI.Controllers
                 return Unauthorized();
             }
 
-            _logger.LogInformation("User ID from claims: {UserId}", userId);
 
             var createdTransaction = await _transactionService.AddTransactionAsync(transactionDto, userId);
             return CreatedAtAction(nameof(GetById), new { id = createdTransaction.Id }, createdTransaction);
@@ -51,7 +48,6 @@ namespace MasrafTakip.WebAPI.Controllers
                 return Unauthorized();
             }
 
-            _logger.LogInformation("User ID from claims: {UserId}", userId);
 
             var transaction = await _transactionService.GetTransactionByIdAsync(id, userId);
             if (transaction == null)
@@ -74,7 +70,6 @@ namespace MasrafTakip.WebAPI.Controllers
                 return Unauthorized();
             }
 
-            _logger.LogInformation("User ID from claims: {UserId}", userId);
 
             await _transactionService.UpdateTransactionAsync(transactionDto, id, userId);
             return NoContent();
@@ -89,7 +84,6 @@ namespace MasrafTakip.WebAPI.Controllers
                 return Unauthorized();
             }
 
-            _logger.LogInformation("User ID from claims: {UserId}", userId);
 
             await _transactionService.DeleteTransactionAsync(id, userId);
             return NoContent();
